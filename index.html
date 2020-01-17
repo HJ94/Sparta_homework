@@ -1,41 +1,49 @@
+<!DOCTYPE>
 <html>
-  <head>
+<head>
+
+	<link href="https://fonts.googleapis.com/css?family=Anton|Fruktur&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 	<style>
 		.content{
+			
 			width:600;
-			height:auto;
-			/*margin:auto;*/
-			padding:auto;
-			/*text-align: center;*/
+			margin : auto ;
+			display : flex;
+			flex-direction: column;
+			justify-content:center;		
 
-			border: 1px solid #000000;
 		}
 		.title1{
 			font-size: 30px; 
 			font-weight: bold;
-			padding-right: 10px
-			
+			font-family: 'Fruktur', cursive;
 		}
 		.title2{
 			font-size: 30px;
 			font-weight: bold;
-			margin :auto;
-
+			
 		}
+		p.a{font-family: 'Anton', sans-serif;}
+
+
 		.myimg{
 
-			border: 1px solid #000000;
 			width: 550px ;
 			height: 250px ;
-			background-image:url('https://search.pstatic.net/common/?src=http%3A%2F%2Fcafefiles.naver.net%2F20130805_179%2Fnagori2_1375666425213c8vAD_JPEG%2F%25BA%25A3%25BD%25BA%25C6%25AE%25BC%25BF%25B7%25AF1.jpg&type=b400');
+			background-image:url('http://image.auction.co.kr/itemimage/1b/05/59/1b05596bb6.jpg');
 
 			background-size: contain;
 			background-repeat: no-repeat;
 			background-position: center;
 			text-align:center;
 
-			margin: 20px auto 20px auto;
+			margin:  auto;
+
 
 			display: flex;
 			flex-direction: column;
@@ -43,125 +51,134 @@
 			justify-content: center;
 		}
 
-		.content1{
-		padding: 20px;
-		}
-		.content2{
-		padding: 0px 20px;
-		}
-
 		.form-group{
-		margin: 0px 0px 0px 10px;
+			margin: 0px 0px 0px 10px;
 		}
-
-		.form-control{
-		width:250px;
-		height: 35px;
-		
-		margin: -25px 0px 0px 110px;
-		border-radius: 6px;
-		border: 1px solid #000000;
-
-		display: flex;
-		/*flex-direction: column;
-		align-items: center;*/
-		justify-content: flex-end;
-
-		}
-
-		/*.form-control1{
-		width:200px;
-		height: 35px;
-		
-		margin: 0px 0px 0px 85px;
-		border-radius: 6px;
-		border: 1px solid #000000;
-		}
-
-		.form-control2{
-		width:200px;
-		height: 35px;
-		
-		margin: 0px 0px 0px 53px;
-		border-radius: 6px;
-		border: 1px solid #000000;
-		}*/
 
 		.btn{
-		margin:  20px 180px 25px;
-		background-color: #ffffff;
-		width:230px;
-		height: 35px;	
-		border-radius: 6px;
-		border: 1px solid #000000;
-
+			margin-left: 120px;	
+		}
+		.info_group{
+			word-break:break-all;
 		}
 
 	</style>
 
-  </head>
+	<script>
 
-  <body>	
-	<div class="content">
+		function input_btn(){
 
+			let myname = $('#input_name').val();
+			let myquantity = $('#input_quantity').val();
+			let myaddress = $('#input_address').val();
+			let myphone_num = $('#input_phone_num').val();
+			let temp_html = 
+			'<tr>\
+			<td scope="row">' + myname + '</td>\
+			<td>' + myquantity + '</td>\
+			<td>' + myaddress + '</td>\
+			<td>' + myphone_num + '</td>\
+			</tr>';
 
-		<div class="myimg">
-
-		</div>
-
-
-
-		<div class="content1">
-			<p6 class="title1">책</p6>    <p3>가격:15,000원 /권</p3> 
-
-			<p>
-				작가 하루키가 들려주는 진지한 문학론에서부터 번역가 무라카미 씨의 감각적인 번역론, 음악 애호가 무라카미 하루키의 깊이 있는 재즈론, 책벌레 하루키가 귀띔하는 명쾌한 독서론, 인생 선배 무라카미 아저씨가 들려주는 따뜻한 인생론, 그리고 막역한 지기지우가 풀어놓는 내 친구 하루키 군에 이르기까지. 작가 하루키의 모든 것이 담겨 있는 책이다.
-
-			</p>
-		</div>
+			var tel = myphone_num;
+			pattern = /^\d{3}-\d{4}-\d{4}/;
 
 
+			if (myname == '') { 
+				alert('주문자 이름을 입력하세요!');
+				myname.focus(); 
+			} else if (myquantity == '---- 수량을 선택하세요 ----') { 
+				alert('수량을 선택하세요!')
+				myquantity.focus();
+			} else if (myaddress == '') { 
+				alert('주소를 입력하세요!');
+				myaddress.focus();
+			} else if (pattern.test(tel)== false) { 
+				alert('전화번호를 입력하세요!');
+				mynumber.focus();
+			} else {
+                    $('#info_table').show();
+                    $('#table_user').append(temp_html);
+                }
+            }
+        </script>
+    </head>
 
 
-		<div class="content2">
-
-			<p class="title2">주문하기</p>
-
-			<div class="form-group">
-            <p>주문자 성함 : <input type="text" class="form-control"></p>
-			
-			 
+    <body>	
+    	<div class="content">
 
 
-    		<p>수량 : <select class="form-control" >
-      		<option>1</option>
-      		<option>2</option>
-      		<option>3</option>
-      		<option>4</option>
-      		<option>5</option>
-    		</select></p>
+    		<div class="myimg">
 
-			<p>주소 : <input type="text" class="form-control" ></p>
+    		</div>
 
+    		<div class="content1">
+    			<p6 class="title1">파퀴칩스</p6>   <p1>가격:59,900원 /개</p1> 
 
-			<p>전화번호 : <input type="text" class="form-control" ></p></div>
+    			<p class="a">
+    				유튜브에 매운 과자 먹기 챌린지로 유명한 세계에서 제일 매운
+    				정말 정말 매운 과자입니다.
+    				파퀴칩스 원칩챌린지 세계에서 가장 매운 과자에 도전하세요!
 
+    			</p>
+    		</div>
 
+    		<div>
 
-		</div>
+    			<p class="title2">주문하기</p>
 
-		<div>
-		<button type="button" class="btn" data-toggle="button" aria-pressed="false" autocomplete="off">
-  		주문하기
-		</button>
-		
+    			<div class="input-group mb-3">
+    				<div class="input-group-prepend">
+    					<span class="input-group-text" id="basic-addon1">주문자 성함:</span>
+    				</div>
+    				<input id="input_name" type="text" class="form-control" >
+    			</div>
 
-		</div>
-	    
+    			<div class="input-group mb-3">
+    				<div class="input-group-prepend">
+    					<label class="input-group-text" for="quantity">수량</label>
+    				</div>
+    				<select id="input_quantity" class="custom-select"> 
+    					<option selected>-- 수량을 선택하세요 --</option>
+    					<option value="1">1</option>
+    					<option value="2">2</option>
+    					<option value="3">3</option>
+    				</select>
+    			</div>
 
+    			<div class="input-group mb-3">
+    				<div class="input-group-prepend">
+    					<span class="input-group-text" id="basic-addon1">주소</span>
+    				</div>
+    				<input id="input_address" type="text" class="form-control"  >
+    			</div>
 
+    			<div class="input-group mb-3">
+    				<div class="input-group-prepend">
+    					<span class="input-group-text" id="basic-addon1">전화번호</span>
+    				</div>
+    				<input id="input_phone_num" type="text" class="form-control"  >
+    			</div>
 
-		</div>
-	</div>
-  </body>		
-</html>
+    			<div class="btn">
+    				<button type="button" onclick = "input_btn()" class="btn btn-primary">주문하기</button>
+    			</div>
+    		</div>
+
+    		<table class="table" id="info_table" style="margin-top:50px; display :none">
+    			<thead>
+    				<tr>
+    					<th scope="col">이름</th>
+    					<th scope="col">수량</th>
+    					<th scope="col">주소</th>
+    					<th scope="col">전화번호</th>
+    				</tr>
+    			</thead>
+    			<tbody id="table_user">
+
+    			</tbody>
+    		</table>
+    	</div>
+    </body>
+    </html>
